@@ -182,29 +182,37 @@
       justify-content: center;
       align-items: center;
       gap: 10px;
-      border: 1px solid transparent;
-      padding: 14px 24px;
-      font-size: 0.9rem;
+      padding: 1rem 2.5rem;
+      font-size: 0.85rem;
       font-weight: 400;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
-    }
-
-    .btn:hover,
-    .btn-sub:hover {
-      transform: translateY(-2px);
+      border-radius: 2px;
+      cursor: pointer;
     }
 
     .btn {
       background: var(--accent);
       color: var(--bg-dark);
+      border: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      opacity: 0.85;
     }
 
     .btn-sub {
-      border-color: var(--line);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       background: transparent;
       color: var(--text);
+      transition: border-color 0.3s ease;
+    }
+
+    .btn-sub:hover,
+    .btn-sub:focus-visible {
+      border-color: var(--accent);
     }
 
     .ghost-link {
@@ -386,7 +394,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
+      gap: 1rem;
       margin-top: 8px;
     }
 
@@ -441,9 +449,9 @@
 
     .concept-grid {
       display: grid;
-      gap: 32px;
-      align-items: end;
-      grid-template-columns: 1.3fr 0.7fr;
+      gap: 0;
+      grid-template-columns: minmax(0, 1fr);
+      max-width: 720px;
     }
 
     .concept-catch {
@@ -462,19 +470,26 @@
     }
 
     .concept-panel {
-      padding: 28px;
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(196, 162, 101, 0.04), rgba(255, 255, 255, 0.01));
-      box-shadow: var(--shadow);
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .concept-panel strong {
       display: block;
       margin-bottom: 10px;
       color: var(--accent);
+      font-size: 0.78rem;
       font-weight: 400;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
+    }
+
+    .concept-panel p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.9;
     }
 
     .features-list {
@@ -863,7 +878,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
+      gap: 1rem;
       margin-top: 22px;
     }
 
