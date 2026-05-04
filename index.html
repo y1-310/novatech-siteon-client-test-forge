@@ -657,7 +657,6 @@
       width: 100%;
       aspect-ratio: 4 / 5;
       object-fit: cover;
-      border-bottom: 1px solid var(--line);
     }
 
     .gallery-card figcaption {
@@ -694,7 +693,11 @@
       width: 100%;
       aspect-ratio: 4 / 5;
       object-fit: cover;
-      border: 1px solid var(--line);
+      transition: opacity 0.3s ease;
+    }
+
+    .staff-card:hover img {
+      opacity: 0.88;
     }
 
     .staff-role {
@@ -720,22 +723,29 @@
 
     .photo-grid figure {
       margin: 0;
-      background: rgba(255, 255, 255, 0.015);
+      background: rgba(255, 255, 255, 0.03);
       overflow: hidden;
+      position: relative;
     }
 
     .photo-grid img {
       width: 100%;
-      height: 100%;
-      min-height: 260px;
+      aspect-ratio: 4 / 3;
       object-fit: cover;
-      border-bottom: 1px solid var(--line);
+      display: block;
     }
 
     .photo-grid figcaption {
-      padding: 14px 16px;
-      color: var(--text-mid);
-      font-size: 0.8rem;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 28px 16px 14px;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.62));
     }
 
     .access-layout,
@@ -792,11 +802,12 @@
       list-style: none;
     }
 
-    .payment-list li,
-    .reservation-links a {
-      border: 1px solid var(--line);
-      padding: 10px 12px;
-      background: rgba(255, 255, 255, 0.015);
+    .payment-list li {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
     }
 
     .reservation-links {
@@ -808,16 +819,16 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 56px;
+      padding: 1.2rem 0;
       color: var(--text);
       letter-spacing: 0.06em;
-      transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: padding-left 0.3s ease, color 0.3s ease;
     }
 
     .reservation-links a:hover,
     .reservation-links a:focus-visible {
-      transform: translateY(-2px);
-      border-color: var(--accent);
+      padding-left: 0.5rem;
       color: var(--accent);
     }
 
@@ -827,8 +838,9 @@
     }
 
     .reservation-links span {
-      color: var(--text-mid);
+      color: var(--accent);
       font-size: 0.76rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
