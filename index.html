@@ -182,12 +182,12 @@
       justify-content: center;
       align-items: center;
       gap: 10px;
-      padding: 1rem 2.5rem;
-      font-size: 0.85rem;
+      padding: 1rem 2.5rem !important;
+      font-size: 0.85rem !important;
       font-weight: 400;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.1em !important;
       text-transform: uppercase;
-      border-radius: 2px;
+      border-radius: 2px !important;
       cursor: pointer;
     }
 
@@ -448,14 +448,17 @@
     }
 
     .concept-grid {
-      display: grid;
-      gap: 0;
-      grid-template-columns: minmax(0, 1fr);
-      max-width: 720px;
+      display: block;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .concept-grid > * + * {
+      margin-top: 0;
     }
 
     .concept-catch {
-      margin: 0;
+      margin: 0 0 1.5rem;
       font-family: var(--font-heading);
       font-size: clamp(2.3rem, 6vw, 4.8rem);
       font-weight: 400;
@@ -465,13 +468,13 @@
 
     .concept-desc {
       margin: 0;
-      max-width: 540px;
       color: var(--text-mid);
     }
 
     .concept-panel {
+      display: block;
       padding-top: 2rem;
-      margin-top: 2rem;
+      margin-top: 2.5rem;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
@@ -969,7 +972,6 @@
       }
 
       .menu-layout,
-      .concept-grid,
       .access-layout,
       .reservation-layout,
       .footer-top,
