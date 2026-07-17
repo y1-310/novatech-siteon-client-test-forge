@@ -469,6 +469,9 @@
       line-height: 1.3;
       letter-spacing: 0.08em;
       word-break: keep-all;
+      /* keep-all には overflow-wrap を併用（japanese-copy-guide.md 456-468）
+         375px 時 28.8px × 12字 + letter-spacing = 373px > コンテナ 335px のため */
+      overflow-wrap: anywhere;
     }
 
     .concept-desc {
@@ -1009,6 +1012,13 @@
 
     @media (max-width: 768px) {
       body {
+        padding-bottom: 88px;
+      }
+
+      /* .hero は min-height:100vh + place-items:center のため body の padding-bottom が
+         効かず、中央寄せ内容が sticky-cta（実測 81.5px）の下に入る。iPhone SE では
+         .btn-sub が高さの 75% 被覆されるため body と同じ 88px をヒーロー側にも確保する。 */
+      .hero {
         padding-bottom: 88px;
       }
 
