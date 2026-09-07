@@ -1036,12 +1036,17 @@
         display: inline-flex;
       }
 
+      /* パネル位置は固定pxではなくヘッダー実高に追従させる（rules.md 51）。
+         ヘッダー内テキストの折り返しで実高が変わると、固定px参照ではパネルが
+         ヘッダーの裏に潜って先頭が隠れる。 */
+      /* 背景は完全不透明にする（rules.md 50）。0.98 でも背面が高コントラストだと
+         ゴーストとして透け、メニュー項目の可読性が落ちる。 */
       .nav {
-        position: fixed;
-        inset: 73px 0 auto;
+        position: absolute;
+        inset: 100% 0 auto 0;
         display: none;
         padding: 16px 20px 24px;
-        background: rgba(var(--bg-rgb), 0.98);
+        background: var(--bg);
         border-bottom: 1px solid var(--line);
       }
 
