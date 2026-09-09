@@ -990,6 +990,11 @@
     .btn:lang(ja),
     .button:lang(ja) { letter-spacing: 0.04em; }
 
+
+    /* 和文混在の親から text-transform を継承していた英字ラベル。
+       :lang(ja) の打ち消しが親に当たるため、ここで明示的に戻す。 */
+    [data-caps] { text-transform: uppercase; }
+
     @media (max-width: 1024px) {
       .section,
       .cta {
@@ -1348,9 +1353,9 @@
         <p class="hero-copy">切るだけで終わらせない。あなたの輪郭まで研ぎ澄ます。</p>
         <p class="hero-lead">心斎橋駅徒歩5分。フェードカットと本格シェービングで、仕事にも私服にも映える清潔感をつくる。11:00 - 21:00の夜営業で、あなたのリズムに合わせて整える。</p>
         <ul class="hero-meta" aria-label="店舗情報">
-          <li>Fade Cut</li>
-          <li>Shaving</li>
-          <li>11:00 - 21:00</li>
+          <li lang="en" data-caps>Fade Cut</li>
+          <li lang="en" data-caps>Shaving</li>
+          <li lang="en" data-caps>11:00 - 21:00</li>
           <li>心斎橋駅徒歩5分</li>
         </ul>
         <div class="hero-cta">
@@ -1359,7 +1364,7 @@
         </div>
       </div>
       <div class="hero-scroll" aria-hidden="true">
-        <span lang="en">Scroll</span>
+        <span lang="en" data-caps>Scroll</span>
       </div>
     </section>
 
@@ -1368,7 +1373,7 @@
     <section class="section" id="concept">
       <div class="container">
         <div class="section-head fade-in">
-          <span class="section-number">01</span>
+          <span class="section-number" lang="en">01</span>
           <h2 class="section-title" lang="en">Concept</h2>
           <p class="section-subtitle">男の格を上げる</p>
         </div>
@@ -1390,7 +1395,7 @@
     <section class="section" id="features">
       <div class="container">
         <div class="section-head fade-in">
-          <span class="section-number">02</span>
+          <span class="section-number" lang="en">02</span>
           <h2 class="section-title" lang="en">Features</h2>
           <p class="section-subtitle">技術で差をつける</p>
         </div>
@@ -1434,7 +1439,7 @@
     <section class="section" id="menu">
       <div class="container">
         <div class="section-head fade-in">
-          <span class="section-number">03</span>
+          <span class="section-number" lang="en">03</span>
           <h2 class="section-title" lang="en">Menu</h2>
           <p class="section-subtitle">料金は明快に</p>
         </div>
@@ -1476,7 +1481,7 @@
     <section class="section" id="gallery">
       <div class="container">
         <div class="section-head fade-in">
-          <span class="section-number">04</span>
+          <span class="section-number" lang="en">04</span>
           <h2 class="section-title" lang="en">Gallery</h2>
           <p class="section-subtitle">横顔まで抜かりなく</p>
         </div>
@@ -1506,7 +1511,7 @@
     <section class="section" id="staff">
       <div class="container">
         <div class="section-head fade-in">
-          <span class="section-number">05</span>
+          <span class="section-number" lang="en">05</span>
           <h2 class="section-title" lang="en">Staff</h2>
           <p class="section-subtitle">技術で応える3人</p>
         </div>
@@ -1538,7 +1543,7 @@
     <section class="section" id="photo">
       <div class="container">
         <div class="section-head fade-in">
-          <span class="section-number">06</span>
+          <span class="section-number" lang="en">06</span>
           <h2 class="section-title" lang="en">Photo</h2>
           <p class="section-subtitle">空間も道具も妥協しない</p>
         </div>
@@ -1564,7 +1569,7 @@
     <section class="section" id="access">
       <div class="container">
         <div class="section-head fade-in">
-          <span class="section-number">07</span>
+          <span class="section-number" lang="en">07</span>
           <h2 class="section-title" lang="en">Access</h2>
           <p class="section-subtitle">心斎橋で、夜まで通える</p>
         </div>
@@ -1610,7 +1615,7 @@
     <section class="section" id="reservation">
       <div class="container">
         <div class="section-head fade-in">
-          <span class="section-number">08</span>
+          <span class="section-number" lang="en">08</span>
           <h2 class="section-title" lang="en">Reservation</h2>
           <p class="section-subtitle">今の気分で、すぐ選べる</p>
         </div>
@@ -1623,15 +1628,15 @@
             <div class="reservation-links">
               <a href="https://coubic.com/example" target="_blank" rel="noopener">
                 <strong>ネットで予約する</strong>
-                <span>24h booking</span>
+                <span lang="en">24h booking</span>
               </a>
               <a href="https://lin.ee/example" target="_blank" rel="noopener">
                 <strong>LINE で予約</strong>
-                <span>Direct contact</span>
+                <span lang="en">Direct contact</span>
               </a>
               <a href="tel:06-9876-5432" aria-label="お電話で予約 06-9876-5432">
                 <strong>お電話で予約 06-9876-5432</strong>
-                <span>11:00 - 21:00</span>
+                <span lang="en">11:00 - 21:00</span>
               </a>
             </div>
           </div>
@@ -1675,7 +1680,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 FORGE barber &amp; shave</span>
+        <span data-caps lang="en">© 2026 FORGE barber &amp; shave</span>
       </div>
     </div>
     <p class="demo-note">※ SateOnの制作イメージです。実在する店舗・企業ではありません。</p>
