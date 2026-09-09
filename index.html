@@ -426,31 +426,8 @@
       animation: floatline 2s ease-in-out infinite;
     }
 
-    .marquee {
-      overflow: hidden;
-      white-space: nowrap;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 14px 0;
-      background: rgba(255, 255, 255, 0.01);
-      color: var(--text-light);
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-style: italic;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
 
-    .marquee-inner {
-      display: inline-block;
-      min-width: 200%;
-      animation: marquee 25s linear infinite;
-    }
 
-    .marquee span {
-      margin-right: 48px;
-    }
 
     .concept-grid {
       display: block;
@@ -954,14 +931,6 @@
       transform: translateY(0);
     }
 
-    @keyframes marquee {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
-    }
 
     @keyframes floatline {
       0%, 100% {
@@ -973,6 +942,23 @@
         opacity: 1;
       }
     }
+
+
+    /* ===== タイポ・余白レイヤー（2026-09-09 / A/B検証で採用したタイポ）=====
+       bloom で before/after を実測して採用。配色・装飾・文言は変更しない。
+       必ず mobile-safety のメディアクエリより前に置く。
+       後ろに置くと 12px 下限などの安全ルールを詳細度なしで打ち消す。 */
+
+    body { font-size: 16px; line-height: 1.8; }
+    p, li, dd { line-height: 1.85; }
+
+    .section-head { gap: 2px; margin-bottom: clamp(36px, 4.5vw, 64px); }
+    .section-title {
+      font-size: clamp(2.4rem, 6.4vw, 4.5rem);
+      line-height: 0.98;
+      letter-spacing: 0.01em;
+    }
+    .section-subtitle { font-size: 0.78rem; letter-spacing: 0.14em; }
 
     @media (max-width: 1024px) {
       .section,
@@ -1252,9 +1238,6 @@
         display: none !important;
       }
 
-      .marquee-inner {
-        animation: none !important;
-      }
     </style>
   </noscript>
   <script type="application/ld+json">
@@ -1350,14 +1333,7 @@
       </div>
     </section>
 
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-inner">
-        <span lang="en">Forge Your Presence</span>
-        <span lang="en">Fade. Shave. Finish.</span>
-        <span lang="en">Forge Your Presence</span>
-        <span lang="en">Fade. Shave. Finish.</span>
-      </div>
-    </div>
+    
 
     <section class="section" id="concept">
       <div class="container">
