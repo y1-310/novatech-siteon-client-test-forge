@@ -231,8 +231,11 @@
       position: fixed;
       inset: 0 0 auto;
       z-index: 100;
-      background: transparent;
-      border-bottom: 1px solid transparent;
+            /* 透明ヘッダーは背後の写真の明暗に依存するため、文字が読める保証がない。
+         2026-09-09 実測でナビが 1.06〜3.34 まで落ちていた。最初から地を敷く。 */
+      background: rgba(var(--bg-rgb), 0.95);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
       transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
     }
 
@@ -317,7 +320,7 @@
       display: grid;
       place-items: center;
       background:
-        linear-gradient(rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.48)),
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.68)),
         url("assets/hero.webp") center/cover no-repeat;
       isolation: isolate;
     }
@@ -389,7 +392,7 @@
       margin: 6px 0 0;
       padding: 0;
       list-style: none;
-      color: var(--text-mid);
+      color: var(--text);
       font-size: 0.84rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -851,16 +854,15 @@
     .cta {
       padding: 120px 0;
       background:
-        linear-gradient(180deg, rgba(10, 10, 9, 0.92), rgba(10, 10, 9, 0.98)),
+        linear-gradient(180deg, rgba(10, 10, 9, 0.78), rgba(10, 10, 9, 0.88)),
         url("assets/cta.webp") center/cover no-repeat;
     }
 
     .cta-box {
       padding: 40px;
-      border: 1px solid rgba(196, 162, 101, 0.28);
-      background: rgba(10, 10, 9, 0.72);
+      /* 写真の上に箱を重ねるのをやめる（rules.md 68）。
+         セクション自体が暗い帯なので、枠と影と背景は余白に置き換える。 */
       text-align: center;
-      box-shadow: var(--shadow);
     }
 
     .cta-actions {
@@ -1647,7 +1649,6 @@
     <section class="cta" aria-label="フッター前の予約案内">
       <div class="container">
         <div class="cta-box fade-in">
-          <span class="eyebrow" lang="en">Final Call</span>
           <h2>次の印象は、次のカットで決まる。</h2>
           <p>フェード、シェービング、白髪ぼかし。必要な手入れを一気に整えて、あなたの輪郭を更新する。迷う前に、枠を押さえる。</p>
           <div class="cta-actions">
