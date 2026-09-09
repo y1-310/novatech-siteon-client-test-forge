@@ -185,12 +185,12 @@
       justify-content: center;
       align-items: center;
       gap: 10px;
-      padding: 1rem 2.5rem !important;
-      font-size: 0.85rem !important;
+      padding: 1rem 2.5rem;
+      font-size: 0.85rem;
       font-weight: 400;
-      letter-spacing: 0.1em !important;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      border-radius: 8px !important;
+      border-radius: 8px;
       cursor: pointer;
     }
 
@@ -808,7 +808,7 @@
 
     .payment-list li {
       background: rgba(255, 255, 255, 0.06);
-      border-radius: 100px;
+      border-radius: 999px;
       padding: 5px 14px;
       font-size: 0.8rem;
       letter-spacing: 0.05em;
@@ -960,6 +960,17 @@
     }
     .section-subtitle { font-size: 0.78rem; letter-spacing: 0.14em; }
 
+
+    /* デモ注記。色は footer から継承させる（ハードコードするとフッターの
+       配色を変えたときに取り残される）。 */
+    .demo-note {
+      margin: 0;
+      padding: 12px 0 16px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: inherit;
+    }
+
     @media (max-width: 1024px) {
       .section,
       .cta {
@@ -1056,7 +1067,7 @@
         justify-content: space-between;
         width: 100%;
         padding: 14px 0;
-        border-radius: 8px !important;
+        border-radius: 8px;
       }
 
       .nav .btn-sub {
@@ -1586,7 +1597,6 @@
         </div>
         <div class="reservation-layout">
           <div class="reservation-note fade-in">
-            <span class="eyebrow" lang="en">External Link Type</span>
             <h3>予約動線は最短でいい。</h3>
             <p>ネット予約、LINE、電話の3ルートを用意。思い立った瞬間に動ける導線だけを残した。初回価格があるメニューも、そのまま確認して進める。</p>
           </div>
@@ -1647,10 +1657,10 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 FORGE barber &amp; shave</span>
-        <span>Demo Landing Page</span>
       </div>
     </div>
-  </footer>
+    <p class="demo-note">※ SateOnの制作イメージです。実在する店舗・企業ではありません。</p>
+</footer>
 
   <div class="sticky-cta">
     <a class="btn" href="https://coubic.com/example" target="_blank" rel="noopener">ネットで予約する</a>
