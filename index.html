@@ -37,7 +37,16 @@
       --font-display: "DM Serif Display", "Times New Roman", serif;
       --font-heading: "Shippori Mincho", "Yu Mincho", serif;
       --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
-    }
+    
+      /* ===== タイプスケール（Refero Styles の DESIGN.md 形式に倣う）=====
+         役割ごとに1つだけ値を持ち、表にない値は新しく作らない。
+         大きい見出しはサイト固有の設計なのでここには含めない。 */
+      --t-caption: 0.8rem;
+      --t-small: 0.9rem;
+      --t-body: 1rem;
+      --t-lead: 1.15rem;
+      --t-subheading: clamp(1.25rem, 2vw, 1.5rem);
+}
 
     * {
       box-sizing: border-box;
@@ -49,11 +58,25 @@
 
     html { overflow-x: hidden; }
 
+    /* h2 / h3 に font-size の指定がなく、ブラウザ既定（24px / 18.7px）のままだった。
+       役割として明示する。クラスで別途指定している見出しはそちらが優先される。 */
+    h2 {
+      font-size: clamp(1.6rem, 3.2vw, 2.25rem);
+      line-height: 1.45;
+      font-weight: 400;
+    }
+
+    h3 {
+      font-size: var(--t-subheading);
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
     body {
       overflow-x: hidden;
       margin: 0;
       font-family: var(--font-body);
-      font-size: 14.5px;
+      font-size: var(--t-small);
       font-weight: 300;
       line-height: 1.8;
       color: var(--text);
@@ -130,7 +153,7 @@
 
     .section-number {
       font-family: var(--font-display);
-      font-size: 0.72rem;
+      font-size: var(--t-caption);
       font-weight: 400;
       letter-spacing: 0.24em;
       color: var(--accent);
@@ -148,7 +171,7 @@
     .section-subtitle {
       margin: 0;
       font-family: var(--font-heading);
-      font-size: 0.85rem;
+      font-size: var(--t-small);
       font-weight: 400;
       letter-spacing: 0.14em;
       color: var(--text-mid);
@@ -160,7 +183,7 @@
       align-items: center;
       gap: 10px;
       color: var(--accent);
-      font-size: 0.8rem;
+      font-size: var(--t-caption);
       letter-spacing: 0.16em;
       text-transform: uppercase;
     }
@@ -186,7 +209,7 @@
       align-items: center;
       gap: 10px;
       padding: 1rem 2.5rem;
-      font-size: 0.85rem;
+      font-size: var(--t-small);
       font-weight: 400;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -269,7 +292,7 @@
 
     .brand-sub {
       color: var(--text-mid);
-      font-size: 0.72rem;
+      font-size: var(--t-caption);
       letter-spacing: 0.16em;
       text-transform: uppercase;
     }
@@ -291,7 +314,7 @@
 
     .nav-list a {
       color: var(--text-mid);
-      font-size: 0.82rem;
+      font-size: var(--t-caption);
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
@@ -365,7 +388,7 @@
     .hero-kicker {
       margin: 0;
       color: var(--accent);
-      font-size: 0.82rem;
+      font-size: var(--t-caption);
       letter-spacing: 0.28em;
       text-transform: uppercase;
     }
@@ -393,7 +416,7 @@
       padding: 0;
       list-style: none;
       color: var(--text);
-      font-size: 0.84rem;
+      font-size: var(--t-caption);
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
@@ -415,7 +438,7 @@
       gap: 8px;
       justify-items: center;
       color: var(--text-mid);
-      font-size: 0.72rem;
+      font-size: var(--t-caption);
       letter-spacing: 0.18em;
       text-transform: uppercase;
       z-index: 1;
@@ -471,7 +494,7 @@
       display: block;
       margin-bottom: 10px;
       color: var(--accent);
-      font-size: 0.78rem;
+      font-size: var(--t-caption);
       font-weight: 400;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -479,7 +502,7 @@
 
     .concept-panel p {
       margin: 0;
-      font-size: 0.85rem;
+      font-size: var(--t-small);
       color: rgba(255, 255, 255, 0.6);
       line-height: 1.9;
     }
@@ -591,7 +614,7 @@
     .menu-list dt {
       grid-column: 1;
       padding: 18px 0 6px;
-      font-size: 0.9rem;
+      font-size: var(--t-small);
       font-weight: 400;
       letter-spacing: 0.02em;
     }
@@ -600,7 +623,7 @@
       display: block;
       margin-top: 5px;
       color: var(--text-light);
-      font-size: 0.76rem;
+      font-size: var(--t-caption);
       font-weight: 300;
       letter-spacing: 0.06em;
     }
@@ -611,7 +634,7 @@
       padding: 18px 0 6px;
       text-align: right;
       font-family: var(--font-display);
-      font-size: 1rem;
+      font-size: var(--t-body);
       font-weight: 400;
       letter-spacing: 0.05em;
       white-space: nowrap;
@@ -628,7 +651,7 @@
       margin-top: 6px;
       color: var(--text-mid);
       font-family: var(--font-body);
-      font-size: 0.72rem;
+      font-size: var(--t-caption);
       font-weight: 300;
     }
 
@@ -681,7 +704,7 @@
 
     .gallery-card span {
       color: var(--text-mid);
-      font-size: 0.8rem;
+      font-size: var(--t-caption);
     }
 
     .staff-grid {
@@ -709,7 +732,7 @@
 
     .staff-role {
       color: var(--accent);
-      font-size: 0.76rem;
+      font-size: var(--t-caption);
       letter-spacing: 0.14em;
       text-transform: uppercase;
     }
@@ -717,7 +740,7 @@
     .staff-name {
       margin: 0;
       font-family: var(--font-heading);
-      font-size: 1.24rem;
+      font-size: var(--t-subheading);
       font-weight: 400;
       letter-spacing: 0.06em;
     }
@@ -749,7 +772,7 @@
       bottom: 0;
       padding: 28px 16px 14px;
       color: rgba(255, 255, 255, 0.75);
-      font-size: 0.76rem;
+      font-size: var(--t-caption);
       letter-spacing: 0.1em;
       text-transform: uppercase;
       background: linear-gradient(transparent, rgba(0, 0, 0, 0.62));
@@ -793,7 +816,7 @@
 
     .access-list dt {
       color: var(--text-light);
-      font-size: 0.76rem;
+      font-size: var(--t-caption);
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
@@ -813,7 +836,7 @@
       background: rgba(255, 255, 255, 0.06);
       border-radius: 999px;
       padding: 5px 14px;
-      font-size: 0.8rem;
+      font-size: var(--t-caption);
       letter-spacing: 0.05em;
     }
 
@@ -840,13 +863,13 @@
     }
 
     .reservation-links strong {
-      font-size: 0.92rem;
+      font-size: var(--t-small);
       font-weight: 400;
     }
 
     .reservation-links span {
       color: var(--accent);
-      font-size: 0.76rem;
+      font-size: var(--t-caption);
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
@@ -902,7 +925,7 @@
       justify-content: space-between;
       gap: 16px;
       flex-wrap: wrap;
-      font-size: 0.76rem;
+      font-size: var(--t-caption);
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
@@ -951,7 +974,7 @@
        必ず mobile-safety のメディアクエリより前に置く。
        後ろに置くと 12px 下限などの安全ルールを詳細度なしで打ち消す。 */
 
-    body { font-size: 16px; line-height: 1.8; }
+    body { font-size: var(--t-body); line-height: 1.8; }
     p, li, dd { line-height: 1.85; }
 
     .section-head { gap: 2px; margin-bottom: clamp(36px, 4.5vw, 64px); }
@@ -960,7 +983,7 @@
       line-height: 0.98;
       letter-spacing: 0.01em;
     }
-    .section-subtitle { font-size: 0.78rem; letter-spacing: 0.14em; }
+    .section-subtitle { font-size: var(--t-caption); letter-spacing: 0.14em; }
 
 
     /* デモ注記。色は footer から継承させる（ハードコードするとフッターの
@@ -969,7 +992,7 @@
       margin: 0;
       padding: 12px 0 16px;
       text-align: center;
-      font-size: 0.8rem;
+      font-size: var(--t-caption);
       color: inherit;
     }
 
@@ -1105,7 +1128,7 @@
       }
 
       .hero-copy {
-        font-size: 1.04rem;
+        font-size: var(--t-body);
       }
 
       .hero-meta {
@@ -1213,7 +1236,7 @@
       input,
       select,
       textarea {
-        font-size: 16px;
+        font-size: var(--t-body);
       }
 
       a[href^="tel:"],
@@ -1247,7 +1270,7 @@
       .section-number,
       .menu-list dd small,
       small {
-        font-size: 12px;
+        font-size: var(--t-caption);
       }
     }
 </style>
